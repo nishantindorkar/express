@@ -13,16 +13,10 @@ pipeline {
                 cleanWs()
             }
         }
-        
+
         stage('Checkout from Git') {
             steps {
                 git branch: 'master',credentialsId: 'jenkins',url: "${REPO_URL}"
-            }
-        }
-
-        stage('Install Dependencies') {
-            steps {
-                sh 'npm install'
             }
         }
 
