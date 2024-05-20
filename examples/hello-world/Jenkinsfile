@@ -1,12 +1,12 @@
 pipeline {
     agent any
-
-    environment{
+    
+    environment {
         REPO_URL = 'git@github.com:nishantindorkar/express.git'
     }
 
     stages {
-        stage('Clean Workspace'){
+        stage('Clean Workspace') {
             steps {
                 cleanWs()
             }
@@ -15,6 +15,15 @@ pipeline {
             steps {
                 git branch: 'master', url: "${REPO_URL}"
             }
-        }        
+        }
+        stage('Run Jenkinsfile from Subdirectory') {
+            steps {
+                dir('examples/hello-world') {
+                    script {
+                        load 'Jenkinsfile'
+                    }
+                }
+            }
+        }
     }
 }
