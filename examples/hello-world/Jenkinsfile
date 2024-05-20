@@ -16,14 +16,5 @@ pipeline {
                 git branch: 'master',credentialsId: 'jenkins',url: "${REPO_URL}"
             }
         }
-        // stage('Run Jenkinsfile from Subdirectory') {
-        //     steps {
-        //         dir('examples/hello-world') {
-        //             script {
-        //                 load 'Jenkinsfile'
-        //             }
-        //         }
-        //     }
-        // }
     }
 }
