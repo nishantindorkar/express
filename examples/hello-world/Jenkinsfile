@@ -1,7 +1,7 @@
 pipeline {
     agent any
-    
-    environmant{
+
+    environment{
         REPO_URL = 'git@github.com:nishantindorkar/express.git'
     }
 
