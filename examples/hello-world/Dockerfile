@@ -1,6 +1,8 @@
-FROM node:18.19.1-alpine
+FROM node:18-alpine
 WORKDIR /app
-COPY package*.json /var/lib/jenkins/workspace/examples/hello-world/
+COPY package*.json /app/
 RUN npm install
-COPY index.js ./
+COPY . /app/
+#COPY index.js ./
+EXPOSE 8081
 CMD [ "node", "index.js"]
