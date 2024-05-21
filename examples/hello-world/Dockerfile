@@ -1,9 +1,6 @@
-FROM node:18-alpine
+FROM node:16
 WORKDIR /app
-COPY **/package.json **/package-lock.json ./
-#COPY package*.json /app/
+ADD package*.json ./
 RUN npm install
-COPY . /app/
-#COPY index.js ./
-EXPOSE 8081
-CMD ["node", "index.js"]
+ADD index.js ./
+CMD [ "node", "index.js"]
