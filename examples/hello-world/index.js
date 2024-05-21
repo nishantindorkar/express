@@ -1,6 +1,6 @@
 'use strict'
 
-var express = require('../../');
+var express = require("express");
 
 var app = module.exports = express()
 
@@ -10,8 +10,6 @@ app.get('/', function(req, res){
 
 /* istanbul ignore next */
 if (!module.parent) {
-  app.listen(8081, function() {
-    console.log('Express started on port 8081');
-  });
+  app.listen(8081);
+  console.log('Express started on port 8081');
 }
-
