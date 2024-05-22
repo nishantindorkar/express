@@ -38,7 +38,7 @@ pipeline {
             steps{
                  script {
                     //sh "docker stop ${DOCKER_IMAGE} || true && docker rm ${DOCKER_IMAGE} || true"
-                    sh "docker run --name ${CONT_NAME} -p 8080:8080 nishantindorkar/${DOCKER_IMAGE}:${DOCKER_TAG}"
+                    sh "docker run --name ${CONT_NAME} -p 3000:8080 nishantindorkar/${DOCKER_IMAGE}:${DOCKER_TAG}"
                 }
             }
         }    
