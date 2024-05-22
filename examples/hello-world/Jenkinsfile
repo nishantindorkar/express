@@ -17,6 +17,7 @@ pipeline {
 
         stage('Checkout from Git') {
             steps {
+                sh "git fetch --tags --progress git@github.com:nishantindorkar/express.git"
                 git branch: 'master',credentialsId: 'jenkins',url: "${REPO_URL}"
             }
         }
@@ -38,7 +39,7 @@ pipeline {
             steps{
                  script {
                     //sh "docker stop ${DOCKER_IMAGE} || true && docker rm ${DOCKER_IMAGE} || true"
-                    sh "docker run --name ${CONT_NAME} -p 8081:8081 nishantindorkar/${DOCKER_IMAGE}:${DOCKER_TAG}"
+                    sh "docker run --name ${CONT_NAME} -p 8080:8080 nishantindorkar/${DOCKER_IMAGE}:${DOCKER_TAG}"
                 }
             }
         }    

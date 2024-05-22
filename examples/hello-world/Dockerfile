@@ -3,5 +3,4 @@ WORKDIR /app
 ADD package*.json ./
 RUN npm install
 ADD index.js ./
-EXPOSE 8081
 CMD ["node", "index.js"]
